@@ -3,7 +3,7 @@
 
 import UIKit
 
-class ButtonView : UIView {
+class ButtonView : UIView, UIGestureRecognizerDelegate {
 
     private static let NoOp = { (btn:ButtonView) in }
     
@@ -14,20 +14,29 @@ class ButtonView : UIView {
     /* Called when the view is released (perform desired action) */
     var onReleased = {}
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect)
+    {
         super.init(frame: frame)
+        
+        let recognizer = UILongPressGestureRecognizer(target: self, action: Selector("touched:"))
+        recognizer.delegate = self
+        recognizer.minimumPressDuration = 0.0
+        addGestureRecognizer(recognizer)
+        userInteractionEnabled = true
+        
         onNormal(self)
-    }
-
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        onPressed(self)
-    }
-
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        onNormal(self)
-        onReleased()
     }
     
+    func touched(sender: UILongPressGestureRecognizer)
+    {
+        if sender.state == .Began {
+            onPressed(self)
+        } else if sender.state == .Ended {
+            onNormal(self)
+            onReleased()
+        }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
