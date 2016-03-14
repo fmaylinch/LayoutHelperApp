@@ -13,7 +13,7 @@ class ButtonView : UIView, UIGestureRecognizerDelegate {
     var onPressed = NoOp
     /* Called when the view is released (perform desired action) */
     var action = {}
-
+    
     override init(frame: CGRect)
     {
         super.init(frame: frame)
