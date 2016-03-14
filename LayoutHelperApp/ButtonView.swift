@@ -12,7 +12,7 @@ class ButtonView : UIView, UIGestureRecognizerDelegate {
     /* Called when the view goes to pressed state (set desired appearance) */
     var onPressed = NoOp
     /* Called when the view is released (perform desired action) */
-    var onReleased = {}
+    var action = {}
     
     override init(frame: CGRect)
     {
@@ -33,7 +33,7 @@ class ButtonView : UIView, UIGestureRecognizerDelegate {
             onPressed(self)
         } else if sender.state == .Ended {
             onNormal(self)
-            onReleased()
+            action()
         }
     }
 
