@@ -26,7 +26,7 @@
 
 - (instancetype)initWithOrientation:(UILayoutConstraintAxis)orientation
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectZero];
 
     _orientation = orientation;
     self.numberOfViews = 0;
