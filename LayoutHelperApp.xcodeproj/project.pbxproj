@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
+		2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */; };
 		2DFE71A9DEDB2BC7252FF439 /* coupon_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7ECABF57D1D4BFBAE2E5 /* coupon_white_big.png */; };
 		2DFE72DDF5F23A5CC16CE837 /* menu_events@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE77D77A976F5DE7ECCCD7 /* menu_events@3x.png */; };
 		2DFE74CE399951637AB5CE49 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */; };
@@ -19,6 +20,7 @@
 		2DFE7B59047B517B6095D675 /* club_shield_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7B9BD907F5EF79159829 /* club_shield_pink.png */; };
 		2DFE7BC0E560CE16467E9E27 /* MyClubHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE78E38747E57794A4255A /* MyClubHeaderView.swift */; };
 		2DFE7C79C25658B90764CF2A /* gym_map_pin_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7CE0F307293CA0C0B435 /* gym_map_pin_pink.png */; };
+		2DFE7CEABECF3CB8287043B0 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE775D546D449F1504DF26 /* RewardsView.swift */; };
 		2DFE7D24AD74DD334347B20B /* rewards_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7D9BBEDF0FACD5D3F865 /* rewards_heart.png */; };
 		2DFE7D2E905F41BCBE95AEE9 /* events-filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7C7EB22EDBA83C493F09 /* events-filter@2x.png */; };
 		2DFE7D31DC2CED6BE67273B8 /* AnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7888C14231B0F025F816 /* AnimationUtil.swift */; };
@@ -42,11 +44,14 @@
 /* Begin PBXFileReference section */
 		04153F41D9324F7952912D46 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1FBA7A4C4BD945D4D4A64576 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsInfoBannerView.h; sourceTree = "<group>"; };
 		2DFE7136D21055FB33FDD62D /* rewards_trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_trophy.png; sourceTree = "<group>"; };
 		2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		2DFE720AB2C0E548C1961D9F /* menu_gym@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_gym@3x.png"; sourceTree = "<group>"; };
 		2DFE7376E4B4665D5485AAC3 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
 		2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		2DFE775D546D449F1504DF26 /* RewardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
+		2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardsInfoBannerView.m; sourceTree = "<group>"; };
 		2DFE77D77A976F5DE7ECCCD7 /* menu_events@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_events@3x.png"; sourceTree = "<group>"; };
 		2DFE7888C14231B0F025F816 /* AnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUtil.swift; sourceTree = "<group>"; };
 		2DFE78E38747E57794A4255A /* MyClubHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubHeaderView.swift; sourceTree = "<group>"; };
@@ -65,8 +70,6 @@
 		7C1E27701C07BC6700C848E5 /* LayoutHelperApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LayoutHelperApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		7C1E27781C0893B800C848E5 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		7C348FFB1C0A542300F37775 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		7C3490061C0B6BA100F37775 /* Views.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Views.playground; sourceTree = "<group>"; };
-		7C3490071C0B77CB00F37775 /* Simple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Simple.playground; sourceTree = "<group>"; };
 		7C34900A1C0B8AED00F37775 /* CustomDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		7C4363811C000A7500EAF293 /* LayoutHelperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutHelperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C4363841C000A7500EAF293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +101,9 @@
 			children = (
 				2DFE78E38747E57794A4255A /* MyClubHeaderView.swift */,
 				2DFE78A1B177501082F8C4C0 /* Images */,
+				2DFE775D546D449F1504DF26 /* RewardsView.swift */,
+				2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */,
+				2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -193,8 +199,6 @@
 				7C43638D1C000A7500EAF293 /* LaunchScreen.storyboard */,
 				7C4363901C000A7500EAF293 /* Info.plist */,
 				7C1E27701C07BC6700C848E5 /* LayoutHelperApp-Bridging-Header.h */,
-				7C3490061C0B6BA100F37775 /* Views.playground */,
-				7C3490071C0B77CB00F37775 /* Simple.playground */,
 				2DFE73110287A0336583CDE3 /* Layouts */,
 				2DFE78BF9DFA0390E32160A2 /* Fonts */,
 			);
@@ -359,6 +363,8 @@
 				2DFE7D31DC2CED6BE67273B8 /* AnimationUtil.swift in Sources */,
 				2DFE7DF0BF76DA0172D4D556 /* ButtonView.swift in Sources */,
 				2DFE7BC0E560CE16467E9E27 /* MyClubHeaderView.swift in Sources */,
+				2DFE7CEABECF3CB8287043B0 /* RewardsView.swift in Sources */,
+				2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

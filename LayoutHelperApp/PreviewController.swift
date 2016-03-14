@@ -15,14 +15,9 @@ class PreviewController: PreviewBaseController {
         
         // Example of LinearLayout and some ViewUtil functions
         let linear = LinearLayout(orientation: .Vertical)
-        linear.marginBetween = 20
-        for i in 1...10 {
-            let label = ViewUtil.labelWithSize(50)
-            label.text = "View \(i)"
-            label.textAlignment = .Center
-            label.backgroundColor = ViewUtil.color(argb: 0x50905070)
-            linear.appendSubview(label)
-        }
+        linear.appendSubview( MyClubHeaderView() )
+        linear.appendSubview( RewardsView() )
+
         
         // Example of scroll view
         // Note: In your real controller, use LayoutHelper(controller:) normally
