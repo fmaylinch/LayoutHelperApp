@@ -1,5 +1,19 @@
 
-/** Helper class for creating layouts */
+/**
+ * Helper class for creating layouts.
+ *
+ * When creating an instance of this class, you pass the view to be configured (the main or parent view).
+ * All views and constraints will be added to that view.
+ *
+ * You can add views (UIView) and layout guides (UILayoutGuide) to that main view.
+ * Each time you add a view or guide you also provide a key that can be referenced in the constraints.
+ *
+ * Constaints can use the official Visual Format Language and also an extended format
+ * supported here. Example: "X:parent.width >= view1.height * 2 - 10". There, we're referencing
+ * the parent view (the view passed in the init) and some view1 that we added to the parent view.
+ * That kind of constraints end up calling
+ *   NSLayoutConstraint(item:, attribute:, relatedBy:, toItem:, attribute:, multiplier:, constant:)
+ */
 
 import UIKit
 
@@ -26,7 +40,10 @@ public class LayoutHelper {
         self.view = view
     }
 
-    /** Inits object with a the view of a controller */
+    /**
+     * Inits object with the controller.view and uses controller layout guides
+     * to align vertically when using `fillWithView`.
+     */
     public convenience init(controller: UIViewController) {
         self.init(view: controller.view)
         viewOfController = true
