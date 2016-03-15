@@ -13,6 +13,7 @@ class RewardsView : LinearLayout {
 
     // Reward progress
     let pointsBarView = UIView()
+    let pointsLbl = ViewUtil.labelWithSize(17)
     let daysLeftLbl = ViewUtil.labelWithSize(15)
     let daysBarView = UIView()
 
@@ -27,6 +28,7 @@ class RewardsView : LinearLayout {
     {
         super.init(orientation: .Vertical)
         setupViews()
+        resetRewards() // Not necessary the first time
         loadRewards()
     }
 
@@ -40,7 +42,7 @@ class RewardsView : LinearLayout {
 
         appendHeader()
         appendProgress()
-        appendRewards()
+        appendRewardsList()
         appendTotals()
     }
 
@@ -99,18 +101,31 @@ class RewardsView : LinearLayout {
         title.text = "CURRENT PROGRESS" // TODO: rewards_progress
         title.textColor = ViewUtil.MainColor
 
+        pointsLbl.textAlignment = .Center
+        pointsLbl.textColor = .whiteColor()
+        pointsLbl.layer.shadowOpacity = 1.0;
+        pointsLbl.layer.shadowRadius = 0.0;
+        pointsLbl.layer.shadowColor = UIColor.blackColor().CGColor
+        pointsLbl.layer.shadowOffset = CGSizeMake(1.0, 1.0)
+
+        // pointsLbl drawn over pointsBarView
+        let pointsView = LayoutHelper()
+            .fillWithView(pointsBarView)
+            .fillWithView(pointsLbl)
+            .view
+
         daysLeftLbl.textAlignment = .Center
         daysLeftLbl.adjustsFontSizeToFitWidth = true
 
         self.marginBetween = 20
         self.appendSubview(title)
         self.marginBetween = 10
-        self.appendSubview(pointsBarView, size: 40)
+        self.appendSubview(pointsView, size: 35)
         self.appendSubview(daysLeftLbl)
         self.appendSubview(daysBarView)
     }
 
-    func appendRewards()
+    func appendRewardsList()
     {
         let title = ViewUtil.labelWithSize(28)
         title.text = "MY REWARDS" // TODO: rewards_mine
@@ -167,16 +182,43 @@ class RewardsView : LinearLayout {
 
     func setupView(rewards: Rewards)
     {
-        daysLeftLbl.text = "\(rewards.daysLeft) DAYS TO COMPLETE CURRENT CHALLENGES" // TODO: rewards_days_left
-
-        // TODO: points label, days bar, reward list
-        totalPointsLbl.text = "\(rewards.currentPoints) POINTS = \(rewards.discount)€" // TODO: format "POINTS" and discount
-
-        let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
-        let bar = G4LProgressBar(fillFactor: fillFactor)
-        LayoutHelper(view: pointsBarView).fillWithView(bar)
+        drawPoints(rewards)
+        drawDays(rewards)
+        drawRewardsList(rewards)
+        drawTotals(rewards)
     }
 
+    func drawPoints(rewards: Rewards)
+    {
+        let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
+        let pointsBar = G4LProgressBar(fillFactor: fillFactor)
+
+        pointsLbl.text = "\(rewards.currentPoints)/\(rewards.totalPoints)PTS" // TODO: rewards_pts
+
+        LayoutHelper(view: pointsBarView).fillWithView(pointsBar)
+    }
+
+    func drawDays(rewards: Rewards)
+    {
+        daysLeftLbl.text = "\(rewards.daysLeft) DAYS TO COMPLETE CURRENT CHALLENGES" // TODO: rewards_days_left
+
+        // TODO: days bar
+    }
+
+    func drawRewardsList(rewards: Rewards)
+    {
+        // TODO: rewards list
+    }
+
+    func drawTotals(rewards: Rewards)
+    {
+        totalPointsLbl.text = "\(rewards.currentPoints) POINTS = \(rewards.discount)€" // TODO: format "POINTS" and discount
+    }
+
+    func resetRewards()
+    {
+        try! pointsBarView.subviews.forEach { $0.removeFromSuperview() }
+    }
 
     // required
     required init?(coder aDecoder: NSCoder) {
