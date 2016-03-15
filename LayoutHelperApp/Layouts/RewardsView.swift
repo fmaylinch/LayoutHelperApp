@@ -9,6 +9,7 @@ class RewardsView : LinearLayout {
     let helpBtn = UIView()
     let helpLbl = ViewUtil.labelWithSize(22)
     let helpBtnPadding: Float = 10
+    let helpLblSize: Float = 30
 
     // Reward progress
     let pointsBarView = UIView()
@@ -52,13 +53,13 @@ class RewardsView : LinearLayout {
         title.numberOfLines = 2
         title.adjustsFontSizeToFitWidth = true
 
-        let helpBtnSize: Float = 50
-        let helpBtn = buildHelpButton(helpBtnSize)
+        let helpBtn = buildHelpButton()
         helpBtn.hidden = true
         helpBtn.userInteractionEnabled = true
+        let helpBtnSize = helpLblSize + helpBtnPadding*2
 
         // Apply negative padding to helpBtn to align padded helpLbl
-        // on the right side and add some space on the left for title
+        // on the right side and save some space on the left for title
         let padFix = -helpBtnPadding
 
         let header = LayoutHelper()
@@ -76,27 +77,20 @@ class RewardsView : LinearLayout {
     }
 
     /** Button with the "?" character */
-    func buildHelpButton(size: Float) -> UIView
+    func buildHelpButton() -> UIView
     {
         helpLbl.text = "?"
         helpLbl.textAlignment = .Center
         helpLbl.textColor = .whiteColor()
         helpLbl.backgroundColor = ViewUtil.MainColor
+        helpLbl.layer.cornerRadius = CGFloat(helpLblSize) / 2
+        helpLbl.layer.masksToBounds = true
 
         // Add padding so clickable area is bigger
         let p = CGFloat(helpBtnPadding)
         return LayoutHelper(view: helpBtn)
             .fillWithView(helpLbl, margins: UIEdgeInsetsMake(p, p, p, p))
             .view
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        // Make helpLbl background circular
-        layoutIfNeeded() // so helpIcon.frame is calculated
-        helpLbl.layer.cornerRadius = helpLbl.frame.size.height / 2.0
-        helpLbl.layer.masksToBounds = true
     }
 
     func appendProgress()
