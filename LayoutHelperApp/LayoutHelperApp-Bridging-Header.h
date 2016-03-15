@@ -5,3 +5,5 @@
 #import "IQDropDownTextField.h"
 #import "LinearLayout.h"
 #import "RewardsInfoBannerView.h"
+#import "Rewards.h"
+#import "RewardStats.h"
