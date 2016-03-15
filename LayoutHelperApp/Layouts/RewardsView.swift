@@ -7,10 +7,14 @@ class RewardsView : LinearLayout {
 
     let helpBtn = UIView()
     let helpIcon = ViewUtil.labelWithSize(22)
+    let helpBtnPadding: Float = 10
 
     init()
     {
         super.init(orientation: .Vertical)
+
+        marginSides = 30
+        marginEnds = 20
 
         appendSubview( buildHeader() )
     }
@@ -19,20 +23,24 @@ class RewardsView : LinearLayout {
     {
         let trophy = ViewUtil.imageScaled("rewards_trophy")
 
-        let title = ViewUtil.labelWithSize(28)
-        title.text = "GYMFORLESS REWARDS" // TODO: "rewards_info_title".localized.uppercaseString
+        let title = ViewUtil.labelWithSize(30)
+        title.text = "GYMFORLESS\nREWARDS" // We need the line break
         title.numberOfLines = 2
         title.adjustsFontSizeToFitWidth = true
 
         let helpBtnSize: Float = 50
         let helpBtn = buildHelpButton(helpBtnSize)
-        // TODO: helpBtn.hidden = true (display when we get the RewardsConfig)
+        helpBtn.hidden = true
+        helpBtn.userInteractionEnabled = true
+
+        // Apply negative padding to the right of helpBtn to align padded helpIcon
+        let paddingFix = -helpBtnPadding
 
         return LayoutHelper()
             .addViews(["trophy":trophy, "title":title, "helpBtn":helpBtn])
-            .withMetrics(["ts":80, "hbs": helpBtnSize])
+            .withMetrics(["ts":80, "hbs": helpBtnSize, "pf":paddingFix])
             .addConstraints([
-                "H:|[trophy(ts)]-(15)-[title]-[helpBtn(hbs)]|",
+                "H:|[trophy(ts)]-(15)-[title]-[helpBtn(hbs)]-(pf)-|",
                 "V:|[trophy(ts)]|", "V:|[title]|",
                 "V:[helpBtn(hbs)]",
                 "X:helpBtn.centerY == parent.centerY"
@@ -48,10 +56,10 @@ class RewardsView : LinearLayout {
         helpIcon.textColor = .whiteColor()
         helpIcon.backgroundColor = ViewUtil.MainColor
 
-        // Padding so clickable area is bigger
-        let pad: CGFloat = 10
+        // Add padding so clickable area is bigger
+        let p = CGFloat(helpBtnPadding)
         return LayoutHelper(view: helpBtn)
-            .fillWithView(helpIcon, margins: UIEdgeInsetsMake(pad, pad, pad, pad))
+            .fillWithView(helpIcon, margins: UIEdgeInsetsMake(p, p, p, p))
             .view
     }
 

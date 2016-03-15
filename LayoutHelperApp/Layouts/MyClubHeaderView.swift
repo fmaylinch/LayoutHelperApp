@@ -33,8 +33,8 @@ class MyClubHeaderView : UIView {
                 "H:|[gymsBtn]-(10)-[activitiesBtn(==gymsBtn)]|",
                 "H:|[accessBtn]|",
                 "V:[shield(110)]",
-                "V:|[shield]-[gymsBtn]-[accessBtn]|",
-                "V:|[shield]-[activitiesBtn]-[accessBtn]|"
+                "V:|[shield]-(20)-[gymsBtn]-[accessBtn]|",
+                "V:|[shield]-(20)-[activitiesBtn]-[accessBtn]|"
             ]).view
 
         LayoutHelper(view: self)
