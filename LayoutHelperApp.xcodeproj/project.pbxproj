@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
 		2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */; };
+		2DFE703FE362671881AF17E1 /* G4LProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBar.swift */; };
 		2DFE713318F4A8BAC70D4AF6 /* bar_edge_left_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE71482B1B3EAB1103C451 /* bar_edge_left_on.png */; };
 		2DFE713A46819D4D85427718 /* bar_middle_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7DBEAE2E94E33F29FE6A /* bar_middle_off.png */; };
 		2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */; };
@@ -73,6 +74,7 @@
 		2DFE7959F3810DEC889F2E2A /* bar_edge_right_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_right_off.png; sourceTree = "<group>"; };
 		2DFE79DCEAC5919E55E81937 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		2DFE7AB05EA2B745F927F448 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
+		2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G4LProgressBar.swift; sourceTree = "<group>"; };
 		2DFE7B9BD907F5EF79159829 /* club_shield_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club_shield_pink.png; sourceTree = "<group>"; };
 		2DFE7C4F604BD91C893F83F2 /* RewardStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardStats.h; sourceTree = "<group>"; };
 		2DFE7C7EB22EDBA83C493F09 /* events-filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events-filter@2x.png"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */,
 				2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */,
 				2DFE74C836C0842D7FF55CBF /* Models */,
+				2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBar.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */,
 				2DFE7290DF226CFE13F68A7A /* Rewards.m in Sources */,
 				2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */,
+				2DFE703FE362671881AF17E1 /* G4LProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

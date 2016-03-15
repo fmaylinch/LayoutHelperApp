@@ -57,14 +57,15 @@ class RewardsView : LinearLayout {
         helpBtn.hidden = true
         helpBtn.userInteractionEnabled = true
 
-        // Apply negative padding to the right of helpBtn to align padded helpLbl
-        let paddingFix = -helpBtnPadding
+        // Apply negative padding to helpBtn to align padded helpLbl
+        // on the right side and add some space on the left for title
+        let padFix = -helpBtnPadding
 
         let header = LayoutHelper()
             .addViews(["trophy":trophy, "title":title, "helpBtn":helpBtn])
-            .withMetrics(["ts":80, "hbs": helpBtnSize, "pf":paddingFix])
+            .withMetrics(["ts":80, "hbs": helpBtnSize, "pfl":padFix/2, "pfr":padFix])
             .addConstraints([
-                "H:|[trophy(ts)]-(15)-[title]-[helpBtn(hbs)]-(pf)-|",
+                "H:|[trophy(ts)]-(15)-[title]-(pfl)-[helpBtn(hbs)]-(pfr)-|",
                 "V:|[trophy(ts)]|", "V:|[title]|",
                 "V:[helpBtn(hbs)]",
                 "X:helpBtn.centerY == parent.centerY"
@@ -109,8 +110,8 @@ class RewardsView : LinearLayout {
 
         self.marginBetween = 20
         self.appendSubview(title)
-        self.marginBetween = 0
-        self.appendSubview(pointsBarView)
+        self.marginBetween = 10
+        self.appendSubview(pointsBarView, size: 40)
         self.appendSubview(daysLeftLbl)
         self.appendSubview(daysBarView)
     }
@@ -143,8 +144,8 @@ class RewardsView : LinearLayout {
         let linear = LinearLayout(orientation: .Vertical)
         linear.backgroundColor = ViewUtil.MainColor
         linear.marginSides = 30
-        linear.marginEnds = 20
-        linear.marginBetween = 20
+        linear.marginEnds = 15
+        linear.marginBetween = 15
 
         linear.appendSubview(title)
         linear.appendSubview(totalPointsLbl)
@@ -160,7 +161,12 @@ class RewardsView : LinearLayout {
     {
         // TODO: load real Rewards
         let rewards = Rewards()
-        rewards.daysLeft = 15
+        rewards.daysPassed = 18
+        rewards.daysLeft = 12
+        rewards.totalPoints = 45
+        rewards.currentPoints = 20
+        rewards.discount = 4
+        rewards.level = 1
 
         setupView(rewards)
     }
@@ -169,8 +175,12 @@ class RewardsView : LinearLayout {
     {
         daysLeftLbl.text = "\(rewards.daysLeft) DAYS TO COMPLETE CURRENT CHALLENGES" // TODO: rewards_days_left
 
-        // TODO: points bar, days bar, reward list
-        totalPointsLbl.text = "10 POINTS = 2€"
+        // TODO: points label, days bar, reward list
+        totalPointsLbl.text = "\(rewards.currentPoints) POINTS = \(rewards.discount)€" // TODO: format "POINTS" and discount
+
+        let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
+        let bar = G4LProgressBar(fillFactor: fillFactor)
+        LayoutHelper(view: pointsBarView).fillWithView(bar)
     }
 
 
