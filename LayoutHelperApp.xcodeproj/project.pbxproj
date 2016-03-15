@@ -8,15 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
+		2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */; };
+		2DFE713318F4A8BAC70D4AF6 /* bar_edge_left_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE71482B1B3EAB1103C451 /* bar_edge_left_on.png */; };
+		2DFE713A46819D4D85427718 /* bar_middle_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7DBEAE2E94E33F29FE6A /* bar_middle_off.png */; };
 		2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */; };
 		2DFE71A9DEDB2BC7252FF439 /* coupon_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7ECABF57D1D4BFBAE2E5 /* coupon_white_big.png */; };
+		2DFE7290DF226CFE13F68A7A /* Rewards.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE72FCC8E29F246BE580ED /* Rewards.m */; };
 		2DFE72DDF5F23A5CC16CE837 /* menu_events@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE77D77A976F5DE7ECCCD7 /* menu_events@3x.png */; };
 		2DFE74CE399951637AB5CE49 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */; };
 		2DFE758C3D4F6B9E15071B92 /* rewards_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7DB8EFB7A1B15CCE3CFB /* rewards_calendar.png */; };
 		2DFE7720F52D4EF7AD9112B6 /* ShareTech-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7FDB889F8149705EF8DF /* ShareTech-Regular.ttf */; };
+		2DFE77D5E49D20C416C8A5F8 /* bar_edge_left_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7D924703FE2A0F8833DD /* bar_edge_left_off.png */; };
 		2DFE783AD452871E93933897 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */; };
 		2DFE786597D78FD6E7D02F94 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7EC26A493FD4A9CF5F08 /* FontAwesome.ttf */; };
 		2DFE78AB94B2EA203BE5B43E /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7376E4B4665D5485AAC3 /* LinearLayout.m */; };
+		2DFE78D234B02439A9FC6C01 /* bar_middle_on_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7EA44BF881158C52CA1B /* bar_middle_on_off.png */; };
+		2DFE7AD51BBA20E6D79C33C3 /* bar_edge_right_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7904D503F296AE967F2C /* bar_edge_right_on.png */; };
 		2DFE7B59047B517B6095D675 /* club_shield_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7B9BD907F5EF79159829 /* club_shield_pink.png */; };
 		2DFE7BC0E560CE16467E9E27 /* MyClubHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE78E38747E57794A4255A /* MyClubHeaderView.swift */; };
 		2DFE7C79C25658B90764CF2A /* gym_map_pin_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7CE0F307293CA0C0B435 /* gym_map_pin_pink.png */; };
@@ -24,8 +31,10 @@
 		2DFE7D24AD74DD334347B20B /* rewards_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7D9BBEDF0FACD5D3F865 /* rewards_heart.png */; };
 		2DFE7D2E905F41BCBE95AEE9 /* events-filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7C7EB22EDBA83C493F09 /* events-filter@2x.png */; };
 		2DFE7D31DC2CED6BE67273B8 /* AnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7888C14231B0F025F816 /* AnimationUtil.swift */; };
+		2DFE7DA7F83AC0073F0FAF2D /* bar_edge_right_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7959F3810DEC889F2E2A /* bar_edge_right_off.png */; };
 		2DFE7DF0BF76DA0172D4D556 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7CF46087E34ECF6DB466 /* ButtonView.swift */; };
 		2DFE7F2176D2594EF8924232 /* rewards_trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7136D21055FB33FDD62D /* rewards_trophy.png */; };
+		2DFE7FA01DA9C79AEC0CC8F6 /* bar_middle_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE721FBE64156DEF0805F7 /* bar_middle_on.png */; };
 		2DFE7FCF650F5CC4D7C87378 /* menu_gym@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE720AB2C0E548C1961D9F /* menu_gym@3x.png */; };
 		7C1E27791C0893B800C848E5 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E27781C0893B800C848E5 /* CustomLabel.swift */; };
 		7C348FFC1C0A542300F37775 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C348FFB1C0A542300F37775 /* CustomButton.swift */; };
@@ -44,25 +53,36 @@
 /* Begin PBXFileReference section */
 		04153F41D9324F7952912D46 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1FBA7A4C4BD945D4D4A64576 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardStats.m; sourceTree = "<group>"; };
 		2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsInfoBannerView.h; sourceTree = "<group>"; };
 		2DFE7136D21055FB33FDD62D /* rewards_trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_trophy.png; sourceTree = "<group>"; };
+		2DFE71482B1B3EAB1103C451 /* bar_edge_left_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_left_on.png; sourceTree = "<group>"; };
 		2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		2DFE720AB2C0E548C1961D9F /* menu_gym@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_gym@3x.png"; sourceTree = "<group>"; };
+		2DFE721FBE64156DEF0805F7 /* bar_middle_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_middle_on.png; sourceTree = "<group>"; };
+		2DFE72FCC8E29F246BE580ED /* Rewards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rewards.m; sourceTree = "<group>"; };
 		2DFE7376E4B4665D5485AAC3 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
 		2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		2DFE76264C7FEE40A0280723 /* Rewards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rewards.h; sourceTree = "<group>"; };
 		2DFE775D546D449F1504DF26 /* RewardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
 		2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardsInfoBannerView.m; sourceTree = "<group>"; };
 		2DFE77D77A976F5DE7ECCCD7 /* menu_events@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_events@3x.png"; sourceTree = "<group>"; };
 		2DFE7888C14231B0F025F816 /* AnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUtil.swift; sourceTree = "<group>"; };
 		2DFE78E38747E57794A4255A /* MyClubHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubHeaderView.swift; sourceTree = "<group>"; };
+		2DFE7904D503F296AE967F2C /* bar_edge_right_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_right_on.png; sourceTree = "<group>"; };
+		2DFE7959F3810DEC889F2E2A /* bar_edge_right_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_right_off.png; sourceTree = "<group>"; };
 		2DFE79DCEAC5919E55E81937 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		2DFE7AB05EA2B745F927F448 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
 		2DFE7B9BD907F5EF79159829 /* club_shield_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club_shield_pink.png; sourceTree = "<group>"; };
+		2DFE7C4F604BD91C893F83F2 /* RewardStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardStats.h; sourceTree = "<group>"; };
 		2DFE7C7EB22EDBA83C493F09 /* events-filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events-filter@2x.png"; sourceTree = "<group>"; };
 		2DFE7CE0F307293CA0C0B435 /* gym_map_pin_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gym_map_pin_pink.png; sourceTree = "<group>"; };
 		2DFE7CF46087E34ECF6DB466 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		2DFE7D924703FE2A0F8833DD /* bar_edge_left_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_left_off.png; sourceTree = "<group>"; };
 		2DFE7D9BBEDF0FACD5D3F865 /* rewards_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_heart.png; sourceTree = "<group>"; };
 		2DFE7DB8EFB7A1B15CCE3CFB /* rewards_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_calendar.png; sourceTree = "<group>"; };
+		2DFE7DBEAE2E94E33F29FE6A /* bar_middle_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_middle_off.png; sourceTree = "<group>"; };
+		2DFE7EA44BF881158C52CA1B /* bar_middle_on_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_middle_on_off.png; sourceTree = "<group>"; };
 		2DFE7EC26A493FD4A9CF5F08 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		2DFE7ECABF57D1D4BFBAE2E5 /* coupon_white_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coupon_white_big.png; sourceTree = "<group>"; };
 		2DFE7FDB889F8149705EF8DF /* ShareTech-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "ShareTech-Regular.ttf"; sourceTree = "<group>"; };
@@ -104,8 +124,20 @@
 				2DFE775D546D449F1504DF26 /* RewardsView.swift */,
 				2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */,
 				2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */,
+				2DFE74C836C0842D7FF55CBF /* Models */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		2DFE74C836C0842D7FF55CBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE72FCC8E29F246BE580ED /* Rewards.m */,
+				2DFE76264C7FEE40A0280723 /* Rewards.h */,
+				2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */,
+				2DFE7C4F604BD91C893F83F2 /* RewardStats.h */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2DFE78A1B177501082F8C4C0 /* Images */ = {
@@ -120,6 +152,13 @@
 				2DFE7CE0F307293CA0C0B435 /* gym_map_pin_pink.png */,
 				2DFE720AB2C0E548C1961D9F /* menu_gym@3x.png */,
 				2DFE7DB8EFB7A1B15CCE3CFB /* rewards_calendar.png */,
+				2DFE7D924703FE2A0F8833DD /* bar_edge_left_off.png */,
+				2DFE7DBEAE2E94E33F29FE6A /* bar_middle_off.png */,
+				2DFE721FBE64156DEF0805F7 /* bar_middle_on.png */,
+				2DFE7959F3810DEC889F2E2A /* bar_edge_right_off.png */,
+				2DFE7EA44BF881158C52CA1B /* bar_middle_on_off.png */,
+				2DFE7904D503F296AE967F2C /* bar_edge_right_on.png */,
+				2DFE71482B1B3EAB1103C451 /* bar_edge_left_on.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -291,6 +330,13 @@
 				2DFE74CE399951637AB5CE49 /* OpenSans-Light.ttf in Resources */,
 				2DFE7720F52D4EF7AD9112B6 /* ShareTech-Regular.ttf in Resources */,
 				2DFE786597D78FD6E7D02F94 /* FontAwesome.ttf in Resources */,
+				2DFE77D5E49D20C416C8A5F8 /* bar_edge_left_off.png in Resources */,
+				2DFE713A46819D4D85427718 /* bar_middle_off.png in Resources */,
+				2DFE7FA01DA9C79AEC0CC8F6 /* bar_middle_on.png in Resources */,
+				2DFE7DA7F83AC0073F0FAF2D /* bar_edge_right_off.png in Resources */,
+				2DFE78D234B02439A9FC6C01 /* bar_middle_on_off.png in Resources */,
+				2DFE7AD51BBA20E6D79C33C3 /* bar_edge_right_on.png in Resources */,
+				2DFE713318F4A8BAC70D4AF6 /* bar_edge_left_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +411,8 @@
 				2DFE7BC0E560CE16467E9E27 /* MyClubHeaderView.swift in Sources */,
 				2DFE7CEABECF3CB8287043B0 /* RewardsView.swift in Sources */,
 				2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */,
+				2DFE7290DF226CFE13F68A7A /* Rewards.m in Sources */,
+				2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
