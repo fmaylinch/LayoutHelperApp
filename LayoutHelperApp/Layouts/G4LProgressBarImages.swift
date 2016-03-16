@@ -9,64 +9,85 @@
 
 import UIKit
 
-class G4LProgressBar : LinearLayout {
+class G4LProgressBarImages: UIView {
 
+    private static let SectionHeight: CGFloat = 35
     private static let SectionWidth: CGFloat = 15
 
-    private let fillFactor: Double
-    private let availableWidth: CGFloat
+    var fillFactor: Double = 0   { didSet { refresh() } }
     private let sectionImages: [UIImage]
-    private var linear : LinearLayout!
 
-    init(fillFactor: Double, availableWidth: CGFloat)
+    init()
     {
-        self.fillFactor = fillFactor
-        self.availableWidth = availableWidth
-        self.sectionImages = G4LProgressBar.loadSectionImages()
-        super.init(orientation: .Horizontal)
+        self.sectionImages = G4LProgressBarImages.loadSectionImages()
+        super.init(frame: CGRectZero)
+    }
+
+    func refresh() {
+        print("refreshing images bar")
+        setNeedsLayout()
+        setupViews()
+    }
+
+    override func layoutSubviews()
+    {
+        super.layoutSubviews()
         setupViews()
     }
 
     func setupViews()
     {
-        print("G4LProgressBar setup with width \(availableWidth)")
+        try! subviews.forEach { $0.removeFromSuperview() }
+
+        let availableWidth = self.frame.size.width
+        print("Avaliable space for images bar: \(availableWidth)")
+        guard availableWidth > 0 else { return }
+
+        print("Drawing progress bar with fill factor: \(fillFactor)")
 
         let info = SectionsInfo(availableWidth: availableWidth, fillFactor: fillFactor)
 
+        let linear = LinearLayout(orientation: .Horizontal)
+
         // Left edge
-        addSection(info.leftEdgeOn ? EDGE_LEFT_ON_IDX : EDGE_LEFT_OFF_IDX)
+        addSection(info.leftEdgeOn ? EDGE_LEFT_ON_IDX : EDGE_LEFT_OFF_IDX, to:linear)
 
         // Middle sections on
         if info.numMiddleOn >= 1 {
             for i in 1 ... info.numMiddleOn {
-                addSection(MIDDLE_ON_IDX)
+                addSection(MIDDLE_ON_IDX, to:linear)
             }
         }
 
         // Middle on-off transition
         if info.includeOnOff {
-            addSection(MIDDLE_ON_OFF_IDX)
+            addSection(MIDDLE_ON_OFF_IDX, to:linear)
         }
 
         // Middle sections off
         if info.numMiddleOff >= 1 {
             for i in 1 ... info.numMiddleOff {
-                addSection(MIDDLE_OFF_IDX)
+                addSection(MIDDLE_OFF_IDX, to:linear)
             }
         }
 
         // Right edge
-        addSection(info.rightEdgeOn ? EDGE_RIGHT_ON_IDX : EDGE_RIGHT_OFF_IDX)
+        addSection(info.rightEdgeOn ? EDGE_RIGHT_ON_IDX : EDGE_RIGHT_OFF_IDX, to:linear)
+
+        LayoutHelper(view: self)
+            .addViews(["linear": linear])
+            .withMetrics(["height":Float(G4LProgressBarImages.SectionHeight)])
+            .addConstraints(["V:|[linear(height)]|", "X:linear.centerX == parent.centerX"])
     }
 
-    func addSection(sectionIndex: Int)
+    func addSection(sectionIndex: Int, to linear:LinearLayout)
     {
         let img = UIImageView(image: sectionImages[sectionIndex])
 
         let width = sectionIndex == MIDDLE_ON_OFF_IDX ? // on-off section has double size
-                G4LProgressBar.SectionWidth * 2 : G4LProgressBar.SectionWidth
+                G4LProgressBarImages.SectionWidth * 2 : G4LProgressBarImages.SectionWidth
 
-        appendSubview(img, size: width)
+        linear.appendSubview(img, size: width)
     }
 
     // Index in sectionImages
@@ -114,7 +135,7 @@ class G4LProgressBar : LinearLayout {
             leftEdgeOn = fillFactor > 0
             rightEdgeOn = fillFactor == 1
 
-            numSections = Int( availableWidth / G4LProgressBar.SectionWidth )
+            numSections = Int( availableWidth / G4LProgressBarImages.SectionWidth )
             numSectionsFilled = Int( Double(numSections) * fillFactor )
 
             // When there's a partial fill, always include the on-off section

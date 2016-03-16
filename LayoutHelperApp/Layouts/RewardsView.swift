@@ -12,10 +12,10 @@ class RewardsView : LinearLayout {
     let helpLblSize: Float = 30
 
     // Reward progress
-    let pointsBarView = UIView()
+    let pointsBar = G4LProgressBarImages()
     let pointsLbl = ViewUtil.labelWithSize(17)
     let daysLeftLbl = ViewUtil.labelWithSize(15)
-    let daysBarView = UIView()
+    let daysBar = G4LProgressBarSquares()
 
     // Rewards list
     let rewardsView = UIView()
@@ -108,9 +108,9 @@ class RewardsView : LinearLayout {
         pointsLbl.layer.shadowColor = UIColor.blackColor().CGColor
         pointsLbl.layer.shadowOffset = CGSizeMake(1.0, 1.0)
 
-        // pointsLbl drawn over pointsBarView
+        // pointsLbl drawn over pointsBar
         let pointsView = LayoutHelper()
-            .fillWithView(pointsBarView)
+            .fillWithView(pointsBar)
             .fillWithView(pointsLbl)
             .view
 
@@ -120,9 +120,9 @@ class RewardsView : LinearLayout {
         self.marginBetween = 20
         self.appendSubview(title)
         self.marginBetween = 10
-        self.appendSubview(pointsView, size: 35)
+        self.appendSubview(pointsView)
         self.appendSubview(daysLeftLbl)
-        self.appendSubview(daysBarView)
+        self.appendSubview(daysBar)
     }
 
     func appendRewardsList()
@@ -169,22 +169,11 @@ class RewardsView : LinearLayout {
     func updateRewards(rewards: Rewards)
     {
         self.rewards = rewards
-        drawRewardViewsIfPossible()
+        drawRewards()
     }
 
-    /**
-     * Draws rewards if we got the data (the Rewards object) and we have the required frame sizes.
-     */
-    func drawRewardViewsIfPossible() {
-
-        let width = sizeOf(pointsBarView).width
-        print("Trying to setup rewards. Width: \(width). Rewards set: \(rewards != nil).")
-
-        guard width > 0 else { return }
-        guard rewards != nil else { return }
-
-        resetRewardViews()
-
+    func drawRewards()
+    {
         drawPoints()
         drawPointsBar()
         drawDays()
@@ -192,41 +181,15 @@ class RewardsView : LinearLayout {
         drawTotals()
     }
 
-    func resetRewardViews()
-    {
-        try! pointsBarView.subviews.forEach { $0.removeFromSuperview() }
-    }
-
-    /**
-     * Here I want to get the final frame size of pointsBarSize.
-     * It seems that it's after layoutIfNeeded() that I get the final frame size.
-     */
-    override func layoutSubviews()
-    {
-        print("layoutSubviews before super.          pointsBarSize: \(sizeOf(pointsBarView))")
-        super.layoutSubviews()
-        print("layoutSubviews after super.           pointsBarSize: \(sizeOf(pointsBarView))")
-        layoutIfNeeded()
-        print("layoutSubviews after layoutIfNeeded.  pointsBarSize: \(sizeOf(pointsBarView))")
-        drawRewardViewsIfPossible()
-    }
-
     func drawPoints()
     {
         pointsLbl.text = "\(rewards.currentPoints)/\(rewards.totalPoints)PTS" // TODO: rewards_pts
     }
 
-    /** Draws points bar if frame size is calculated */
     func drawPointsBar()
     {
-        let width = sizeOf(pointsBarView).width
-
         let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
-        let pointsBar = G4LProgressBar(fillFactor: fillFactor, availableWidth: width)
-
-        LayoutHelper(view: pointsBarView)
-            .addViews(["bar":pointsBar])
-            .addConstraints(["V:|[bar]|", "X:bar.centerX == parent.centerX"])
+        pointsBar.fillFactor = fillFactor
     }
 
     func sizeOf(view: UIView) -> CGSize {
@@ -243,7 +206,8 @@ class RewardsView : LinearLayout {
         // Skip drawing the squares because they would be too few and too big.
         guard totalDays >= 28 else { return }
 
-        // TODO: days bar
+        daysBar.on = rewards.daysPassed
+        daysBar.off = rewards.daysLeft
     }
 
     func drawRewardsList()
