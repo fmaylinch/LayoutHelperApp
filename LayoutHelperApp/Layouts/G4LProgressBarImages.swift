@@ -26,7 +26,6 @@ class G4LProgressBarImages: UIView {
     func refresh() {
         print("refreshing images bar")
         setNeedsLayout()
-        setupViews()
     }
 
     override func layoutSubviews()

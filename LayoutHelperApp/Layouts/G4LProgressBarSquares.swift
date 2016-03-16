@@ -28,7 +28,6 @@ class G4LProgressBarSquares : UIView {
     func refresh() {
         print("refreshing squares bar")
         setNeedsLayout()
-        setupViews()
     }
 
     override func layoutSubviews()
