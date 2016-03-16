@@ -39,7 +39,7 @@ class G4LProgressBarSquares : UIView {
 
     func setupViews()
     {
-        try! subviews.forEach { $0.removeFromSuperview() }
+        removeSubviews()
 
         let availableWidth = self.frame.size.width
         print("Avaliable space for squares bar: \(availableWidth)")

@@ -7,3 +7,4 @@
 #import "RewardsInfoBannerView.h"
 #import "Rewards.h"
 #import "RewardStats.h"
+#import "UIView+Extras.h"

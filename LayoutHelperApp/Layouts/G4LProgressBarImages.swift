@@ -37,7 +37,7 @@ class G4LProgressBarImages: UIView {
 
     func setupViews()
     {
-        try! subviews.forEach { $0.removeFromSuperview() }
+        removeSubviews()
 
         let availableWidth = self.frame.size.width
         print("Avaliable space for images bar: \(availableWidth)")
