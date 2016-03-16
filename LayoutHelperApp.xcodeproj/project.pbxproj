@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
+		2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */; };
 		2DFE74CE399951637AB5CE49 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */; };
 		2DFE7720F52D4EF7AD9112B6 /* ShareTech-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7FDB889F8149705EF8DF /* ShareTech-Regular.ttf */; };
 		2DFE783AD452871E93933897 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */; };
@@ -32,7 +33,9 @@
 /* Begin PBXFileReference section */
 		04153F41D9324F7952912D46 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1FBA7A4C4BD945D4D4A64576 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
 		2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
+		2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		2DFE7376E4B4665D5485AAC3 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
 		2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		2DFE7888C14231B0F025F816 /* AnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUtil.swift; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				2DFE79DCEAC5919E55E81937 /* AutolayoutHelper.h */,
 				2DFE7888C14231B0F025F816 /* AnimationUtil.swift */,
 				2DFE7CF46087E34ECF6DB466 /* ButtonView.swift */,
+				2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */,
+				2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				2DFE783AD452871E93933897 /* AutolayoutHelper.m in Sources */,
 				2DFE7D31DC2CED6BE67273B8 /* AnimationUtil.swift in Sources */,
 				2DFE7DF0BF76DA0172D4D556 /* ButtonView.swift in Sources */,
+				2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
