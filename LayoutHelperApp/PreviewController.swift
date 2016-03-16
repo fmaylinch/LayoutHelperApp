@@ -22,6 +22,8 @@ class PreviewController: PreviewBaseController {
 
         setupHelpButton(rewardsView.helpBtn)
 
+        loadRewards(rewardsView)
+
         // Example of scroll view
         // Note: In your real controller, use LayoutHelper(controller:) normally
         __LayoutHelper(controller: self).fillWithScrollView(.Vertical, contentView:linear)
@@ -32,5 +34,19 @@ class PreviewController: PreviewBaseController {
         // TODO: load config and then display button
         helpBtn.hidden = false
         // TODO: rewardsView.helpBtn.onTap RewardsUtil.presentInfo(config, fromController:self)
+    }
+
+    func loadRewards(rewardsView: RewardsView) {
+
+        // TODO: load real Rewards
+        let rewards = Rewards()
+        rewards.daysPassed = 18
+        rewards.daysLeft = 12
+        rewards.totalPoints = 45
+        rewards.currentPoints = 20
+        rewards.discount = 4
+        rewards.level = 1
+
+        rewardsView.updateRewards(rewards)
     }
 }

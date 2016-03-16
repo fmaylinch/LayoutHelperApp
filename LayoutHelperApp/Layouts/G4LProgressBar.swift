@@ -9,31 +9,27 @@
 
 import UIKit
 
-class G4LProgressBar : UIView {
+class G4LProgressBar : LinearLayout {
 
-    private static let SectionWidth: CGFloat = 20
+    private static let SectionWidth: CGFloat = 15
 
     private let fillFactor: Double
+    private let availableWidth: CGFloat
     private let sectionImages: [UIImage]
     private var linear : LinearLayout!
 
-    init(fillFactor: Double)
+    init(fillFactor: Double, availableWidth: CGFloat)
     {
         self.fillFactor = fillFactor
+        self.availableWidth = availableWidth
         self.sectionImages = G4LProgressBar.loadSectionImages()
-        super.init(frame: CGRectZero)
+        super.init(orientation: .Horizontal)
+        setupViews()
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        layoutIfNeeded() // so size is calculated
-        setupViews(self.frame.size.width)
-    }
-
-    func setupViews(availableWidth: CGFloat)
+    func setupViews()
     {
-        prepareLinearLayout()
+        print("G4LProgressBar setup with width \(availableWidth)")
 
         let info = SectionsInfo(availableWidth: availableWidth, fillFactor: fillFactor)
 
@@ -63,22 +59,6 @@ class G4LProgressBar : UIView {
         addSection(info.rightEdgeOn ? EDGE_RIGHT_ON_IDX : EDGE_RIGHT_OFF_IDX)
     }
 
-    /**
-     * Replaces the LinearLayout where the sections are added (it's centered in parent)
-     */
-    func prepareLinearLayout()
-    {
-        linear?.removeFromSuperview()
-
-        linear = LinearLayout(orientation: .Horizontal)
-
-        LayoutHelper(view:self)
-            .addViews(["linear":linear])
-            .addConstraints([
-                "V:|[linear]|", "X:linear.centerX == parent.centerX"
-            ])
-    }
-
     func addSection(sectionIndex: Int)
     {
         let img = UIImageView(image: sectionImages[sectionIndex])
@@ -86,7 +66,7 @@ class G4LProgressBar : UIView {
         let width = sectionIndex == MIDDLE_ON_OFF_IDX ? // on-off section has double size
                 G4LProgressBar.SectionWidth * 2 : G4LProgressBar.SectionWidth
 
-        linear.appendSubview(img, size: width)
+        appendSubview(img, size: width)
     }
 
     // Index in sectionImages

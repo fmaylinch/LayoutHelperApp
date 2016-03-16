@@ -23,13 +23,13 @@ class RewardsView : LinearLayout {
     // Total
     let totalPointsLbl = ViewUtil.labelWithSize(32)
 
+    var rewards : Rewards!
+
 
     init()
     {
         super.init(orientation: .Vertical)
         setupViews()
-        resetRewards() // Not necessary the first time
-        loadRewards()
     }
 
 
@@ -166,58 +166,94 @@ class RewardsView : LinearLayout {
 
     // Setup of rewards (done at start and each time we refresh)
 
-    func loadRewards()
+    func updateRewards(rewards: Rewards)
     {
-        // TODO: load real Rewards
-        let rewards = Rewards()
-        rewards.daysPassed = 18
-        rewards.daysLeft = 12
-        rewards.totalPoints = 45
-        rewards.currentPoints = 20
-        rewards.discount = 4
-        rewards.level = 1
-
-        setupView(rewards)
+        self.rewards = rewards
+        drawRewardViewsIfPossible()
     }
 
-    func setupView(rewards: Rewards)
-    {
-        drawPoints(rewards)
-        drawDays(rewards)
-        drawRewardsList(rewards)
-        drawTotals(rewards)
+    /**
+     * Draws rewards if we got the data (the Rewards object) and we have the required frame sizes.
+     */
+    func drawRewardViewsIfPossible() {
+
+        let width = sizeOf(pointsBarView).width
+        print("Trying to setup rewards. Width: \(width). Rewards set: \(rewards != nil).")
+
+        guard width > 0 else { return }
+        guard rewards != nil else { return }
+
+        resetRewardViews()
+
+        drawPoints()
+        drawPointsBar()
+        drawDays()
+        drawRewardsList()
+        drawTotals()
     }
 
-    func drawPoints(rewards: Rewards)
+    func resetRewardViews()
     {
-        let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
-        let pointsBar = G4LProgressBar(fillFactor: fillFactor)
+        try! pointsBarView.subviews.forEach { $0.removeFromSuperview() }
+    }
 
+    /**
+     * Here I want to get the final frame size of pointsBarSize.
+     * It seems that it's after layoutIfNeeded() that I get the final frame size.
+     */
+    override func layoutSubviews()
+    {
+        print("layoutSubviews before super.          pointsBarSize: \(sizeOf(pointsBarView))")
+        super.layoutSubviews()
+        print("layoutSubviews after super.           pointsBarSize: \(sizeOf(pointsBarView))")
+        layoutIfNeeded()
+        print("layoutSubviews after layoutIfNeeded.  pointsBarSize: \(sizeOf(pointsBarView))")
+        drawRewardViewsIfPossible()
+    }
+
+    func drawPoints()
+    {
         pointsLbl.text = "\(rewards.currentPoints)/\(rewards.totalPoints)PTS" // TODO: rewards_pts
-
-        LayoutHelper(view: pointsBarView).fillWithView(pointsBar)
     }
 
-    func drawDays(rewards: Rewards)
+    /** Draws points bar if frame size is calculated */
+    func drawPointsBar()
+    {
+        let width = sizeOf(pointsBarView).width
+
+        let fillFactor = Double(rewards.currentPoints) / Double(rewards.totalPoints)
+        let pointsBar = G4LProgressBar(fillFactor: fillFactor, availableWidth: width)
+
+        LayoutHelper(view: pointsBarView)
+            .addViews(["bar":pointsBar])
+            .addConstraints(["V:|[bar]|", "X:bar.centerX == parent.centerX"])
+    }
+
+    func sizeOf(view: UIView) -> CGSize {
+        return view.frame.size
+    }
+
+    func drawDays()
     {
         daysLeftLbl.text = "\(rewards.daysLeft) DAYS TO COMPLETE CURRENT CHALLENGES" // TODO: rewards_days_left
+
+        let totalDays = rewards.daysLeft + rewards.daysPassed
+
+        // This may happen if user gets rewards activated in the middle of subscription.
+        // Skip drawing the squares because they would be too few and too big.
+        guard totalDays >= 28 else { return }
 
         // TODO: days bar
     }
 
-    func drawRewardsList(rewards: Rewards)
+    func drawRewardsList()
     {
         // TODO: rewards list
     }
 
-    func drawTotals(rewards: Rewards)
+    func drawTotals()
     {
         totalPointsLbl.text = "\(rewards.currentPoints) POINTS = \(rewards.discount)€" // TODO: format "POINTS" and discount
-    }
-
-    func resetRewards()
-    {
-        try! pointsBarView.subviews.forEach { $0.removeFromSuperview() }
     }
 
     // required
