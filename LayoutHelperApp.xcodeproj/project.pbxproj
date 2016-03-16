@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
+		2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */; };
 		2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */; };
 		2DFE703FE362671881AF17E1 /* G4LProgressBarImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBarImages.swift */; };
 		2DFE7077FCA3D3EA72CDCEB0 /* G4LProgressBarSquares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE76CD3EDE03B795BED997 /* G4LProgressBarSquares.swift */; };
@@ -55,6 +56,8 @@
 /* Begin PBXFileReference section */
 		04153F41D9324F7952912D46 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1FBA7A4C4BD945D4D4A64576 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
+		2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardStats.m; sourceTree = "<group>"; };
 		2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsInfoBannerView.h; sourceTree = "<group>"; };
 		2DFE7136D21055FB33FDD62D /* rewards_trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_trophy.png; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				2DFE79DCEAC5919E55E81937 /* AutolayoutHelper.h */,
 				2DFE7888C14231B0F025F816 /* AnimationUtil.swift */,
 				2DFE7CF46087E34ECF6DB466 /* ButtonView.swift */,
+				2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */,
+				2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */,
 				2DFE703FE362671881AF17E1 /* G4LProgressBarImages.swift in Sources */,
 				2DFE7077FCA3D3EA72CDCEB0 /* G4LProgressBarSquares.swift in Sources */,
+				2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
