@@ -239,8 +239,20 @@ public class LayoutHelper {
 
     public func addConstraint(c:String, priority:UILayoutPriority) -> LayoutHelper {
 
-        // print("Parsing constraint: \(c)")
+        addAndGetConstraint(c, priority: priority)
 
+        return self
+    }
+
+    /** Adds a constraint and returns the generated NSLayoutConstraint objects */
+    public func addAndGetConstraint(c:String) -> [NSLayoutConstraint]
+    {
+        return addAndGetConstraint(c, priority: LayoutHelper.DefaultPriority)
+    }
+
+    /** Adds a constraint (with given priority) and returns the generated NSLayoutConstraint objects */
+    public func addAndGetConstraint(c:String, priority:UILayoutPriority) -> [NSLayoutConstraint]
+    {
         let realConstraints = parseConstraint(c)
 
         if priority != LayoutHelper.DefaultPriority {
@@ -251,7 +263,7 @@ public class LayoutHelper {
 
         self.view.addConstraints(realConstraints)
 
-        return self
+        return realConstraints
     }
 
 

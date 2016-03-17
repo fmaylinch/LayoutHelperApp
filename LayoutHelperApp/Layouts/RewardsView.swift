@@ -214,8 +214,6 @@ class RewardsView : LinearLayout {
     {
         rewardsLinear.removeAllViews()
 
-        let linear = LinearLayout(orientation: .Vertical)
-
         for stat in rewards.rewardStats as! [RewardStats] {
             let view = RewardView(stat: stat)
             rewardsLinear.appendSubview(view)
