@@ -13,7 +13,7 @@ class RewardView : UIView {
     static let FA_Angle_Down = "\u{f107}"
 
     let angle = ViewUtil.labelAwesome("", size:20)
-    var descVisible = false
+    var expanded = true
     var descHeightZero: NSLayoutConstraint!
 
     var layout: LayoutHelper!
@@ -30,7 +30,7 @@ class RewardView : UIView {
         setupViews()
     }
 
-    func setupViews()
+    private func setupViews()
     {
         let icon = ViewUtil.imageScaledFromUrl(stat.icon) // TODO: use sd_setImageWithURL
         let iconSize : Float = 50
@@ -66,57 +66,32 @@ class RewardView : UIView {
             .setWrapContent("points", axis: .Horizontal)
             .setWrapContent("angle", axis: .Horizontal)
 
-        hideDescription()
-
-        onTapCall(Selector("toggleDescription"), on:self)
+        collapse()
     }
 
-    func toggleDescription()
+    func collapse()
     {
-        if descVisible {
-            hideDescription()
-        } else {
-            showDescription()
-        }
+        guard expanded else { return }
 
-        descVisible = !descVisible
-
-        print("Description is now visible? \(descVisible)")
-
-        let rootView = getRootView()
-
-        // Layout root view, so we also animate distance to other views
-        UIView.animateWithDuration(0.5, animations: {
-            rootView.layoutIfNeeded()
-        })
-    }
-
-    func getRootView() -> UIView
-    {
-        var result: UIView = self
-
-        while result.superview != nil {
-            result = result.superview!
-        }
-
-        return result
-    }
-
-    func hideDescription()
-    {
         self.angle.text = RewardView.FA_Angle_Down
 
         // Add just one constraint to make label have height 0
         let cs = self.layout.addAndGetConstraint("V:[desc(0)]")
         self.descHeightZero = cs[0]
+
+        expanded = false
     }
 
-    func showDescription()
+    func expand()
     {
+        guard !expanded else { return }
+
         self.angle.text = RewardView.FA_Angle_Up
 
         // Let the label grow to fit text
         self.removeConstraint(self.descHeightZero)
+
+        expanded = true
     }
 
 

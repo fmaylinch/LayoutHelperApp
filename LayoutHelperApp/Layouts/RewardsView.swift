@@ -214,10 +214,38 @@ class RewardsView : LinearLayout {
     {
         rewardsLinear.removeAllViews()
 
-        for stat in rewards.rewardStats as! [RewardStats] {
-            let view = RewardView(stat: stat)
-            rewardsLinear.appendSubview(view)
+        for stat in rewards.rewardStats as! [RewardStats]
+        {
+            let rewardView = RewardView(stat: stat)
+            rewardsLinear.appendSubview(rewardView)
+
+            rewardView.onTap {
+                [unowned self] in
+                self.toggleExpandedReward(rewardView)
+            }
         }
+    }
+
+    var expandedReward: RewardView!
+
+    func toggleExpandedReward(clickedReward: RewardView)
+    {
+        let rewardToCollapse = expandedReward
+        expandedReward = nil
+
+        if clickedReward != rewardToCollapse {
+            clickedReward.expand()
+            expandedReward = clickedReward
+        }
+
+        if rewardToCollapse != nil {
+            rewardToCollapse.collapse()
+        }
+
+        // Layout superview, so we also animate distance between views
+        UIView.animateWithDuration(0.5, animations: {
+            self.superview!.layoutIfNeeded()
+        })
     }
 
     func drawTotals()
