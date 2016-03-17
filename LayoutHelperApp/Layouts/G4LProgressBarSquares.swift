@@ -67,14 +67,12 @@ class G4LProgressBarSquares : UIView {
 
     func appendSquares(linear: LinearLayout, num:Int, color:UIColor)
     {
-        if num > 0 {
-            for i in 1...num {
-                let square = UIView()
-                square.backgroundColor = color
-                square.layer.cornerRadius = 3
-                square.layer.masksToBounds = true
-                linear.appendSubview(square, size: squareSize)
-            }
+        for var i = 1 ; i <= num ; i++ {
+            let square = UIView()
+            square.backgroundColor = color
+            square.layer.cornerRadius = 3
+            square.layer.masksToBounds = true
+            linear.appendSubview(square, size: squareSize)
         }
     }
 

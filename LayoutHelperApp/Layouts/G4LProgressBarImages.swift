@@ -52,10 +52,8 @@ class G4LProgressBarImages: UIView {
         addSection(info.leftEdgeOn ? EDGE_LEFT_ON_IDX : EDGE_LEFT_OFF_IDX, to:linear)
 
         // Middle sections on
-        if info.numMiddleOn >= 1 {
-            for i in 1 ... info.numMiddleOn {
-                addSection(MIDDLE_ON_IDX, to:linear)
-            }
+        for var i = 1 ; i <= info.numMiddleOn ; i++ {
+            addSection(MIDDLE_ON_IDX, to:linear)
         }
 
         // Middle on-off transition
@@ -64,10 +62,8 @@ class G4LProgressBarImages: UIView {
         }
 
         // Middle sections off
-        if info.numMiddleOff >= 1 {
-            for i in 1 ... info.numMiddleOff {
-                addSection(MIDDLE_OFF_IDX, to:linear)
-            }
+        for var i = 1 ; i <= info.numMiddleOff ; i++ {
+            addSection(MIDDLE_OFF_IDX, to:linear)
         }
 
         // Right edge
