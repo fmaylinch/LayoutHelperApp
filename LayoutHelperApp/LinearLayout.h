@@ -1,5 +1,5 @@
 
-// Similar to a really simple Android LinearLayout
+/** Similar to a really simple Android LinearLayout */
 
 #import <UIKit/UIKit.h>
 
@@ -11,7 +11,7 @@
 
 @property(nonatomic) CGFloat marginEnds;    // margin on both ends of the layout (according to orientation axis)
 @property(nonatomic) CGFloat marginBetween; // margin between each appended view (according to orientation axis)
-@property(nonatomic) CGFloat marginSides;   // margin on both sides of the layout (according to the other orientation axis)
+@property(nonatomic) CGFloat marginSides;   // margin on both sides of the layout (according to cross axis)
 
 @property(nonatomic, strong, readonly) AutolayoutHelper* layout;
 
@@ -38,5 +38,10 @@
 * Returns key used for the appended view in the constraints.
 */
 - (NSString*)appendSubview:(UIView*)view size:(CGFloat)size;
+
+/**
+ * Removes all appended views
+ */
+- (void)removeAllViews;
 
 @end

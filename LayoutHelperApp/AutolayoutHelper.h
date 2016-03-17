@@ -88,6 +88,8 @@
 // Removes subViews with given viewKeys from self.view
 - (void)removeViewsWithKeys:(NSArray*)viewKeys;
 
+- (void)removeAllViews;
+
 // Adds one constraint and returns an array of the generated NSLayoutConstraint
 - (NSArray*)addConstraint:(NSString*)constraint;
 

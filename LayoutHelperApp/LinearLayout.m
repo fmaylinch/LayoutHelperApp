@@ -97,6 +97,12 @@
     return viewKey;
 }
 
+- (void)removeAllViews
+{
+    [self.layout removeAllViews];
+    self.numberOfViews = 0;
+}
+
 - (NSString*)viewKeyForIndex:(NSUInteger)i {
     return [NSString stringWithFormat:@"v%lu", (unsigned long)i];
 }

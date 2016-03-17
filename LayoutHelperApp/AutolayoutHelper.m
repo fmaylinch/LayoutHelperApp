@@ -214,6 +214,11 @@ NSDictionary* relations;
     }
 }
 
+- (void)removeAllViews
+{
+    [self removeViewsWithKeys:self.subViews.allKeys];
+}
+
 - (void)addConstraints:(NSArray*)constraints
 {
     [self addConstraints:constraints priority:PRIORITY_DEFAULT];

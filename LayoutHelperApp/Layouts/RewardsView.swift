@@ -18,7 +18,7 @@ class RewardsView : LinearLayout {
     let daysBar = G4LProgressBarSquares()
 
     // Rewards list
-    let rewardsView = UIView()
+    let rewardsLinear = LinearLayout(orientation: .Vertical)
 
     // Total
     let totalPointsLbl = ViewUtil.labelWithSize(32)
@@ -134,7 +134,7 @@ class RewardsView : LinearLayout {
         self.marginBetween = 20
         self.appendSubview(title)
         self.marginBetween = 0
-        self.appendSubview(rewardsView)
+        self.appendSubview(rewardsLinear)
     }
 
     func appendTotals()
@@ -212,7 +212,14 @@ class RewardsView : LinearLayout {
 
     func drawRewardsList()
     {
-        // TODO: rewards list
+        rewardsLinear.removeAllViews()
+
+        let linear = LinearLayout(orientation: .Vertical)
+
+        for stat in rewards.rewardStats as! [RewardStats] {
+            let view = RewardView(stat: stat)
+            rewardsLinear.appendSubview(view)
+        }
     }
 
     func drawTotals()

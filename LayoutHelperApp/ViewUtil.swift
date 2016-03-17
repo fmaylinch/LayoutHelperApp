@@ -104,6 +104,21 @@ import UIKit
         return img
     }
 
+    /** Scaled image from URL that keeps aspect */
+    class func imageScaledFromUrl(imageUrl: String) -> UIImageView
+    {
+        let url = NSURL(string: imageUrl)!
+
+        let img = UIImageView()
+        img.contentMode = .ScaleAspectFit
+
+        if let data = NSData(contentsOfURL:url) {
+            img.image = UIImage(data: data)
+        }
+
+        return img
+    }
+
     // Button
     
     /** Creates button with default colors and font */

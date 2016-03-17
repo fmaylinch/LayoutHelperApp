@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2278E05CC786A45A8E37A6F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E4B4D996807DC38A2C150 /* libPods.a */; };
-		2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */; };
 		2DFE700C1510BCF65182CAFF /* RewardStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */; };
 		2DFE703FE362671881AF17E1 /* G4LProgressBarImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBarImages.swift */; };
 		2DFE7077FCA3D3EA72CDCEB0 /* G4LProgressBarSquares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE76CD3EDE03B795BED997 /* G4LProgressBarSquares.swift */; };
@@ -17,7 +16,9 @@
 		2DFE715EA73FE7E22E3F224F /* RewardsInfoBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE77D35447371ED3DDE88F /* RewardsInfoBannerView.m */; };
 		2DFE71A9DEDB2BC7252FF439 /* coupon_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7ECABF57D1D4BFBAE2E5 /* coupon_white_big.png */; };
 		2DFE7290DF226CFE13F68A7A /* Rewards.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE72FCC8E29F246BE580ED /* Rewards.m */; };
+		2DFE729F53DA87500C6F1167 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE75E572E268C1F2EF7021 /* RewardView.swift */; };
 		2DFE72DDF5F23A5CC16CE837 /* menu_events@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE77D77A976F5DE7ECCCD7 /* menu_events@3x.png */; };
+		2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */; };
 		2DFE74CE399951637AB5CE49 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */; };
 		2DFE758C3D4F6B9E15071B92 /* rewards_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7DB8EFB7A1B15CCE3CFB /* rewards_calendar.png */; };
 		2DFE7720F52D4EF7AD9112B6 /* ShareTech-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE7FDB889F8149705EF8DF /* ShareTech-Regular.ttf */; };
@@ -56,18 +57,19 @@
 /* Begin PBXFileReference section */
 		04153F41D9324F7952912D46 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1FBA7A4C4BD945D4D4A64576 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
-		2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		2DFE7027E5A7B89FEBBCFE88 /* RewardStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardStats.m; sourceTree = "<group>"; };
+		2DFE70BB1752D4E375D8B888 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
 		2DFE70FEB2B9EC76C232136B /* RewardsInfoBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsInfoBannerView.h; sourceTree = "<group>"; };
 		2DFE7136D21055FB33FDD62D /* rewards_trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_trophy.png; sourceTree = "<group>"; };
 		2DFE71482B1B3EAB1103C451 /* bar_edge_left_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_edge_left_on.png; sourceTree = "<group>"; };
 		2DFE715257B1A7C1B604A4D5 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
+		2DFE71B9885162FFDF8A46A2 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		2DFE720AB2C0E548C1961D9F /* menu_gym@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_gym@3x.png"; sourceTree = "<group>"; };
 		2DFE721FBE64156DEF0805F7 /* bar_middle_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_middle_on.png; sourceTree = "<group>"; };
 		2DFE72FCC8E29F246BE580ED /* Rewards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rewards.m; sourceTree = "<group>"; };
 		2DFE7376E4B4665D5485AAC3 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
 		2DFE742F8EBD0416E94F7188 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		2DFE75E572E268C1F2EF7021 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		2DFE76264C7FEE40A0280723 /* Rewards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rewards.h; sourceTree = "<group>"; };
 		2DFE76CD3EDE03B795BED997 /* G4LProgressBarSquares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G4LProgressBarSquares.swift; sourceTree = "<group>"; };
 		2DFE775D546D449F1504DF26 /* RewardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				2DFE74C836C0842D7FF55CBF /* Models */,
 				2DFE7B80E25A9F4FBA03AA05 /* G4LProgressBarImages.swift */,
 				2DFE76CD3EDE03B795BED997 /* G4LProgressBarSquares.swift */,
+				2DFE75E572E268C1F2EF7021 /* RewardView.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				2DFE703FE362671881AF17E1 /* G4LProgressBarImages.swift in Sources */,
 				2DFE7077FCA3D3EA72CDCEB0 /* G4LProgressBarSquares.swift in Sources */,
 				2DFE73919A8559F1CF3DD9F0 /* UIView+Extras.m in Sources */,
+				2DFE729F53DA87500C6F1167 /* RewardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
