@@ -77,6 +77,15 @@ import UIKit
      * Text should include font awesome symbols like '\u{f00c}'.
      * See: http://fortawesome.github.io/Font-Awesome/cheatsheet
      */
+    class func labelAwesome(text: String, size: Float) -> CustomLabel {
+        return labelAwesome(text, size:size, color: DefaultTextColor)
+    }
+
+    /**
+     * Creates label using FontAwesome.
+     * Text should include font awesome symbols like '\u{f00c}'.
+     * See: http://fortawesome.github.io/Font-Awesome/cheatsheet
+     */
     class func labelAwesome(text: String, size: Float, color: UIColor) -> CustomLabel {
         let label = labelWithFont(fontAwesomeWithSize(size), color: color)
         label.text = text
