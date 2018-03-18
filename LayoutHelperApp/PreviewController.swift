@@ -1,62 +1,70 @@
 
 /**
  * Use this controller to try your layouts.
- * Override `setupViews` and add your views to `mainView` (not to `view`).
+ * Override `setupViews` and add your views using __LayoutBuilder(controller: self).
+ * Then in your real controller just use LayoutBuilder(controller: self) normally.
  */
 
 import UIKit
 
 class PreviewController: PreviewBaseController {
     
-    override func setupViews() {
+    override func setupViews(builder: LayoutBuilder) {
         
-        // Use mainView instead of view
-        mainView.backgroundColor = .whiteColor()
+        // builder.view is the view that the builder is configuring
+        builder.view.backgroundColor = .white
         
-        // LinearLayout is a simple adaptation of Android's LinearLayout
-        let linear = LinearLayout(orientation: .Vertical)
-
-        linear.marginEnds = 30
-        linear.marginSides = 20
-        linear.marginBetween = 10
+        // LinearLayout is similar to Android's LinearLayout
+        let linear = LinearBuilder(axis: .vertical)
+            .margins(ends: 30, sides: 20, between: 10)
 
         for i in 1...10 {
-            let view = createSampleView("View \(i)")
-            linear.appendSubview(view)
+            let view = createSampleView(text: "View \(i)")
+            linear.addView(view)
         }
         
         // Example of scroll view
-        // Note: In your real controller, use LayoutHelper(controller:) normally
-        __LayoutHelper(controller: self).fillWithScrollView(.Vertical, contentView:linear)
+        builder.fillWithScrollView(.vertical, contentView: linear.getView())
     }
 
     /** Example of view configured with LayoutHelper */
     func createSampleView(text: String) -> UIView
     {
         let view = UIView()
-        view.backgroundColor = ViewUtil.color(argb: 0x50905070)
+        view.backgroundColor = .lightGray
 
-        let title = ViewUtil.labelWithSize(50)
-        title.text = text
-        title.backgroundColor = .whiteColor()
+        let builder = LabelBuilder().backColor(.white)
+        
+        let title = builder.size(50).text(text).build()
+        let subtitle = builder.size(30).text("Text that maybe is too long").build()
+        let icon = builder.fontAwesomeSize(30).text("\u{f179}\u{f179}\u{f179}").build()
+        
+        let subtitleRow = LinearBuilder(axis: .horizontal)
+            .margin(between: 5)
+            .addViews([subtitle, icon])
+            .wrapContent(view: icon) // similar to Android's wrap_content
+            .getView()
 
-        let subtitle = ViewUtil.labelWithSize(30)
-        subtitle.text = "Long text that may not fit"
-        subtitle.backgroundColor = .whiteColor()
-
-        let icon = ViewUtil.labelAwesome("\u{f179}", size: 30)
-        icon.backgroundColor = .whiteColor()
-
-        LayoutHelper(view: view)
-            .addViews(["title":title, "subtitle":subtitle, "icon":icon])
+        LayoutBuilder(view: view)
+            .addViews(["title":title, "subTitleRow":subtitleRow])
             .addConstraints([
-                "H:|-[subtitle]-[icon]-|",
-                "V:|-[title]-[subtitle]-|",
-                "V:|-[title]-[icon]-|",
-                "X:title.centerX == parent.centerX"      // Extra constraint format, supported by LayoutHelper
+                "V:|-[title]-[subTitleRow]-|",
+                "H:|-[subTitleRow]-|",
+                "X:title.centerX == parent.centerX"      // extra constraint format, supported by LayoutBuilder
             ])
-            .setWrapContent("icon", axis: .Horizontal)   // icon will take only the space it needs and won't be compressed
 
         return view
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        // Detect ambiguities in layout. Use only when debugging.
+        if view.hasAmbiguousLayout {
+            print("Layout is ambiguous!")
+            view.exerciseAmbiguityInLayout()
+        } else {
+            // print("Layout doesn't have ambiguities")
+        }
     }
 }

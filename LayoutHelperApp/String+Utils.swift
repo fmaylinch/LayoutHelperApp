@@ -7,21 +7,25 @@ extension String {
     
     // http://stackoverflow.com/questions/24044851 - substring and ranges
     
-    func substring(range: NSRange) -> String {
+    func substring(_ range: NSRange) -> String {
         return substring(range.location, range.location + range.length)
     }
 
-    func substring(start:Int, _ end:Int) -> String {
-        let from = getIndex(start)
-        let to = getIndex(end)
+    func substring(_ start:Int, _ end:Int) -> String {
+        let from = index(start)
+        let to = index(end)
         return self[from..<to]
     }
     
-    private func getIndex(pos: Int) -> Index {
-        return pos >= 0 ? startIndex.advancedBy(pos) : endIndex.advancedBy(pos)
+    func index(_ pos: Int) -> Index {
+        return pos >= 0 ? characters.index(startIndex, offsetBy: pos) : characters.index(endIndex, offsetBy: pos)
     }
     
-    func split(separator: String) -> [String] {
-        return componentsSeparatedByString(separator)
+    func length() -> Int {
+        return characters.count
+    }
+    
+    func split(_ separator: String) -> [String] {
+        return components(separatedBy: separator)
     }
 }

@@ -1,11 +1,6 @@
 
 /**
  * Controller to preview the layout
- *
- * TODO: make processGenericSetProperty support things like:
- *
- * label.layer.borderColor = UIColor.whiteColor().CGColor
- * label.textAlignment = .Center
  */
 
 import UIKit
@@ -42,19 +37,12 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
             view.removeFromSuperview()
         }
         
-        setupViews()
+        setupViews(builder: LayoutBuilder(view: mainView))
     }
     
-    /** Override and add views to mainView */
-    func setupViews() { }
+    /** Override to configure the view using this builder */
+    func setupViews(builder: LayoutBuilder) { }
     
-    /** Convenience func, just not to forget to use LayoutHelper(controller:) in the real app controller */
-    func __LayoutHelper(controller controller: UIViewController) -> LayoutHelper
-    {
-        // Use mainView, not the controller.view
-        return LayoutHelper(view: mainView)
-    }
-
     
     // --- Dragging to resize container view ---
     
@@ -64,7 +52,7 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
         dragLabel.text = "\u{f0b2}" // fa-arrows-alt
         dragLabel.font = ViewUtil.fontAwesomeWithSize(30)
         
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("drag:"))
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(drag(panRecognizer:)))
         panRecognizer.minimumNumberOfTouches = 1
         panRecognizer.maximumNumberOfTouches = 1
         panRecognizer.delegate = self
@@ -76,9 +64,9 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
     
     func drag(panRecognizer: UIPanGestureRecognizer) {
         
-        let point = panRecognizer.translationInView(dragView)
+        let point = panRecognizer.translation(in: dragView)
         
-        if panRecognizer.state == .Began {
+        if panRecognizer.state == .began {
             currentWidth = containerWidth.constant
             currentHeight = containerHeight.constant
         }
@@ -92,28 +80,28 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
     
     // -- Buttons for quick resize --
     
-    @IBAction func resizeToIPhone4(sender: UIButton) {
+    @IBAction func resizeToIPhone4(_ sender: Any) {
         resizeContainerTo(width: 320, height: 416)
     }
     
-    @IBAction func resizeToIPhone5(sender: UIButton) {
+    @IBAction func resizeToIPhone5(_ sender: Any) {
         resizeContainerTo(width: 320, height: 504)
     }
     
-    @IBAction func resizeToIPhone6(sender: UIButton) {
+    @IBAction func resizeToIPhone6(_ sender: Any) {
         resizeContainerTo(width: 375, height: 603)
     }
     
-    @IBAction func resizeToIPhone6p(sender: UIButton) {
+    @IBAction func resizeToIPhone6p(_ sender: Any) {
         resizeContainerTo(width: 414, height: 672)
     }
     
-    func resizeContainerTo(width width: CGFloat, height: CGFloat)
+    func resizeContainerTo(width: CGFloat, height: CGFloat)
     {
         self.containerWidth.constant = width
         self.containerHeight.constant = height
         
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         })
     }
