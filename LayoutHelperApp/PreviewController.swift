@@ -1,8 +1,8 @@
 
 /**
  * Use this controller to try your layouts.
- * Override `setupViews` and add your views using __LayoutBuilder(controller: self).
- * Then in your real controller just use LayoutBuilder(controller: self) normally.
+ * In `setupViews` configure your view using the given builder.
+ * In your real controller create your LayoutBuilder(controller: self) normally.
  */
 
 import UIKit
