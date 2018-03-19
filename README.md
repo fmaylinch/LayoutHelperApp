@@ -9,7 +9,29 @@ Edit [PreviewController.swift](LayoutHelperApp/PreviewController.swift) and conf
 
 You may use util classes like [LayoutBuilder](LayoutHelperApp/LayoutBuilder.swift) and [LinearBuilder](LayoutHelperApp/LinearBuilder.swift).
 
-If just run the app you will see an example, that looks similar to this:
+Those classes let you build layouts using the [Visual Format Language](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html)
+with extra features to make it much easier. Example:
+
+```swift
+        let row = LinearBuilder(axis: .horizontal) // similar to Android's LinearLayout
+            .margin(between: 5)
+            .addViews([subtitle, icon])
+            .wrapContent(view: icon) // similar to Android's wrap_content
+            .getView()
+
+        let view = LayoutBuilder()
+            .addViews(["title":title, "row":row])
+            .addConstraints([
+                "V:|-[title]-[row]-|",
+                "H:|-[row]-|",
+                "X:title.centerX == parent.centerX"  // extra constraint format, supported by LayoutBuilder
+            ])
+            .view
+```  
+
+You can see the complete code in [PreviewController.swift](LayoutHelperApp/PreviewController.swift).
+
+If run the app you will see something like this:
 
 <img height="500" src="screenshot.jpg">
 
