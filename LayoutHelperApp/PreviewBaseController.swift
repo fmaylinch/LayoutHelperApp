@@ -26,7 +26,7 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
         resetView()
     }
     
-    @IBAction func reloadCode(sender: AnyObject) {
+    @IBAction func reloadCode(_ sender: Any) {
         print("Reseting view")
         resetView()
     }
