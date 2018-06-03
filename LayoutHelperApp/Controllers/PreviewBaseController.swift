@@ -62,7 +62,7 @@ class PreviewBaseController: UIViewController, UIGestureRecognizerDelegate {
     private var currentWidth: CGFloat = 0
     private var currentHeight: CGFloat = 0
     
-    func drag(panRecognizer: UIPanGestureRecognizer) {
+    @objc func drag(panRecognizer: UIPanGestureRecognizer) {
         
         let point = panRecognizer.translation(in: dragView)
         

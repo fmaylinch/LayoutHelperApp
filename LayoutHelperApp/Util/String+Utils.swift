@@ -14,17 +14,13 @@ extension String {
     func substring(_ start:Int, _ end:Int) -> String {
         let from = index(start)
         let to = index(end)
-        return self[from..<to]
+        return String(self[from..<to])
     }
     
     func index(_ pos: Int) -> Index {
-        return pos >= 0 ? characters.index(startIndex, offsetBy: pos) : characters.index(endIndex, offsetBy: pos)
+        return pos >= 0 ? index(startIndex, offsetBy: pos) : index(endIndex, offsetBy: pos)
     }
-    
-    func length() -> Int {
-        return characters.count
-    }
-    
+
     func split(_ separator: String) -> [String] {
         return components(separatedBy: separator)
     }

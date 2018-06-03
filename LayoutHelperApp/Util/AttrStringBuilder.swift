@@ -13,32 +13,28 @@ class AttrStringBuilder {
 
     init(attrString: NSAttributedString) {
         self.attrString = attrString.mutableCopy() as! NSMutableAttributedString
-        wholeRange = NSMakeRange(0, attrString.string.characters.count)
+        wholeRange = NSMakeRange(0, attrString.string.count)
     }
 
     convenience init(string: String) {
         self.init(attrString: NSMutableAttributedString(string: string))
     }
 
-    @discardableResult
     func bold(_ x:Int = 3, range: NSRange? = nil) -> AttrStringBuilder {
-        attributeIf(x != 0, attr: NSStrokeWidthAttributeName, value: -x, range: range)
+        attributeIf(x != 0, attr: .strokeWidth, value: -x, range: range)
         return self
     }
 
-    @discardableResult
     func underline(_ x:Bool = true, range: NSRange? = nil) -> AttrStringBuilder {
-        attributeIf(x, attr: NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        attributeIf(x, attr: .underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
         return self
     }
 
-    @discardableResult
     func color(_ color:UIColor, range: NSRange? = nil) -> AttrStringBuilder {
-        attributeIf(true, attr: NSForegroundColorAttributeName, value: color, range: range)
+        attributeIf(true, attr: .foregroundColor, value: color, range: range)
         return self
     }
 
-    @discardableResult
     func config(_ action: @escaping (AttrStringBuilder) -> ()) -> AttrStringBuilder {
         configAction = action
         return self
@@ -49,7 +45,7 @@ class AttrStringBuilder {
         return attrString
     }
 
-    private func attributeIf(_ condition: Bool, attr: String, value: Any, range: NSRange?) {
+    private func attributeIf(_ condition: Bool, attr: NSAttributedStringKey, value: Any, range: NSRange?) {
 
         let safeRange: NSRange = range ?? wholeRange
         if condition {

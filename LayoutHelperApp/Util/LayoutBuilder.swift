@@ -14,7 +14,7 @@ class LayoutBuilder : NSObject {
      */
     static var defaultViewKey = "view"
     static let XtConstraintPrefix = "X"
-    static let DefaultPriority: UILayoutPriority = 0
+    static let DefaultPriority: UILayoutPriority = UILayoutPriority(rawValue: 0)
     private static let TopGuideKey = "TOP_GUIDE"
     private static let BottomGuideKey = "BOTTOM_GUIDE"
     
@@ -253,8 +253,8 @@ class LayoutBuilder : NSObject {
     @discardableResult
     func setWrapContent(view:UIView, axis: UILayoutConstraintAxis) -> LayoutBuilder {
         
-        setHugging(view: view, priority: UILayoutPriorityDefaultHigh, axis: axis)
-        setResistance(view: view, priority: UILayoutPriorityRequired, axis: axis)
+        setHugging(view: view, priority: .defaultHigh, axis: axis)
+        setResistance(view: view, priority: .required, axis: axis)
         return self
     }
     
@@ -357,7 +357,7 @@ class LayoutBuilder : NSObject {
     private func parseXtConstraint(_ constraint: String) -> [NSLayoutConstraint]
     {
         let results = LayoutBuilder.xtConstraintRegex.matches(in: constraint,
-                                                              options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, constraint.characters.count))
+                                                              options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, constraint.count))
         
         if results.count != 1 {
             fatalError("Invalid constraint: \(constraint)")
@@ -368,29 +368,29 @@ class LayoutBuilder : NSObject {
             dumpMatch(match, forString: constraint)
             fatalError("Invalid constraint: \(constraint)")
         }
-        let item1Key: String = constraint.substring(match.rangeAt(1))
-        let attr1Str: String = constraint.substring(match.rangeAt(2))
-        let relationStr: String = constraint.substring(match.rangeAt(3))
-        let item2Key: String = constraint.substring(match.rangeAt(4))
-        let attr2Str: String = constraint.substring(match.rangeAt(5))
+        let item1Key: String = constraint.substring(match.range(at: 1))
+        let attr1Str: String = constraint.substring(match.range(at: 2))
+        let relationStr: String = constraint.substring(match.range(at: 3))
+        let item2Key: String = constraint.substring(match.range(at: 4))
+        let attr2Str: String = constraint.substring(match.range(at: 5))
         let item1: AnyObject = findViewFromKey(item1Key)
         let item2: AnyObject = findViewFromKey(item2Key)
         let attr1: NSLayoutAttribute = parseAttribute(attr1Str)
         let attr2: NSLayoutAttribute = parseAttribute(attr2Str)
         let relation: NSLayoutRelation = parseRelation(relationStr)
         var multiplier: Float = 1
-        if match.rangeAt(6).location != NSNotFound {
-            let operation: String = constraint.substring(match.rangeAt(6))
-            let multiplierValue: String = constraint.substring(match.rangeAt(7))
+        if match.range(at: 6).location != NSNotFound {
+            let operation: String = constraint.substring(match.range(at: 6))
+            let multiplierValue: String = constraint.substring(match.range(at: 7))
             multiplier = getFloat(multiplierValue)
             if (operation == "/") { // TODO: deprecate this, I think it leads to weird behaviour sometimes
                 multiplier = 1 / multiplier
             }
         }
         var constant: Float = 0
-        if match.rangeAt(8).location != NSNotFound {
-            let operation: String = constraint.substring(match.rangeAt(8))
-            let constantValue: String = constraint.substring(match.rangeAt(9))
+        if match.range(at: 8).location != NSNotFound {
+            let operation: String = constraint.substring(match.range(at: 8))
+            let constantValue: String = constraint.substring(match.range(at: 9))
             constant = getFloat(constantValue)
             if (operation == "-") {
                 constant = -constant
@@ -514,7 +514,7 @@ class LayoutBuilder : NSObject {
     {
         for i in 0 ..< match.numberOfRanges {
             
-            let range = match.rangeAt(i)
+            let range = match.range(at: i)
             
             if range.location != NSNotFound {
                 let part = str.substring(range)
