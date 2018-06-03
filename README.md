@@ -5,9 +5,9 @@ With this app you can code and quickly debug your layouts before adding them to 
 
 The app is meant to be run on an iPad so you can preview the layout in different sizes with the resizable container view.
 
-Edit [PreviewController.swift](LayoutHelperApp/PreviewController.swift) and configure your layout there.
+Edit [PreviewController.swift](LayoutHelperApp/Controllers/PreviewController.swift) and configure your layout there.
 
-You may use util classes like [LayoutBuilder](LayoutHelperApp/LayoutBuilder.swift) and [LinearBuilder](LayoutHelperApp/LinearBuilder.swift).
+You may use util classes like [LayoutBuilder](LayoutHelperApp/Util/LayoutBuilder.swift) and [LinearBuilder](LayoutHelperApp/Util/LinearBuilder.swift).
 
 Those classes let you build layouts using the [Visual Format Language](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html)
 with extra features to make it much easier. Example:
@@ -29,7 +29,7 @@ with extra features to make it much easier. Example:
             .view
 ```  
 
-You can see the complete code in [PreviewController.swift](LayoutHelperApp/PreviewController.swift).
+You can see the complete code in [PreviewController.swift](LayoutHelperApp/Controllers/PreviewController.swift).
 
 If run the app you will see something like this:
 
